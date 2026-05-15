@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Erich M | Comp & AI Engineer</title>
+    <link rel="stylesheet" type="text/css" href="styles/stylesheet.css" />
+    <script src="cms.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Header Navigation Bar -->
+    <nav class="page-header">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <img
+            class="nav-img"
+            src="assets/images/monogram-green.png"
+            alt="em-logo"
+          />
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle theme">
+          <img
+            class="nav-img"
+            src="assets/images/dark-mode-toggle-green.png"
+            alt="dark-mode-toggle-icon"
+          />
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-center">
+          <h1 id="left-text">ERICH</h1>
+          <img
+            id="hero-img"
+            src="assets/images/monogram-green.png"
+            alt="em-logo"
+          />
+          <h1 id="right-text">MACLEAN</h1>
+        </div>
+        <div class="hero-bottom">
+          <h2>Computer & AI Engineer</h2>
+          <p>
+            ML Systems Engineer in Training | Real-Time & Safety-Critical
+            Systems<br />Computer Engineering | MASc Engineering (AI) @
+            University of Guelph
+          </p>
+          <ul class="hero-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a>Resume</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <p>
+          Erich MacLean is a computer engineer specializing in AI and predictive modeling, with a BEng from the University of Guelph (2023) and pursuing a MASc in Engineering (expected 2025). His research focuses on AI-driven vehicle collision prediction to enhance road safety. He values interdisciplinary collaboration and has contributed to research in the DRiVE lab. Outside of work, Erich trains in Five Animal Shaolin Kung Fu (First Degree Black Sash, 2022) and is an avid cyclist.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-content">
+        <!-- Content loaded dynamically by CMS -->
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-content">
+        <!-- Content loaded dynamically by CMS -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>
+        Erich MacLean | B.Eng (Comp), MASc. Eng (AI)<br />www.erich-m.tech | ©
+        2026
+      </p>
+    </footer>
+
+    <script>
+      const heroImg = document.querySelector('#hero-img');
+      
+      heroImg.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove and re-add the class to trigger animation
+        heroImg.classList.remove('spinning');
+        // Trigger reflow to restart animation
+        void heroImg.offsetWidth;
+        heroImg.classList.add('spinning');
+      });
+      
+      // Remove spinning class after animation completes
+      heroImg.addEventListener('animationend', function() {
+        heroImg.classList.remove('spinning');
+      });
+    </script>
+  </body>
+</html>

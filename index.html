@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erich M | Comp & AI Engineer</title>
+    <link rel="stylesheet" type="text/css" href="styles/stylesheet.css" />
+    <script src="cms.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Header Navigation Bar -->
+    <nav class="page-header">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <img
+            class="nav-img"
+            src="assets/images/monogram-green.png"
+            alt="em-logo"
+          />
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle theme">
+          <img
+            class="nav-img"
+            src="assets/images/dark-mode-toggle-green.png"
+            alt="dark-mode-toggle-icon"
+          />
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-center">
+          <h1 id="left-text">ERICH</h1>
+          <img
+            id="hero-img"
+            src="assets/images/monogram-green.png"
+            alt="em-logo"
+          />
+          <h1 id="right-text">MACLEAN</h1>
+        </div>
+        <div class="hero-bottom">
+          <h2>Computer & AI Engineer</h2>
+          <p>
+            ML Systems Engineer in Training | Real-Time & Safety-Critical
+            Systems<br />Computer Engineering | MASc Engineering (AI) @
+            University of Guelph
+          </p>
+          <ul class="hero-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="assets\files\emaclean_resume.pdf" download>Resume</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <p>
+          Erich MacLean is a computer engineer specializing in AI and predictive
+          modeling, with a BEng from the University of Guelph (2023) and a MASc
+          in Engineering (2026). His research focused on AI-driven vehicle
+          collision prediction to enhance road safety. He values
+          interdisciplinary collaboration and developing meaningful
+          contributions to projects. Outside of work, Erich trains in Five
+          Animal Shaolin Kung Fu (First Degree Black Sash, 2022) and is an avid
+          cyclist.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-content">
+        <!-- Content loaded dynamically by CMS -->
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-content">
+        <!-- Content loaded dynamically by CMS -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>
+        Erich MacLean | B.Eng (Comp), MASc. Eng (AI)<br />
+        www.erich-m.tech | © 2026
+      </p>
+    </footer>
+
+    <script>
+      // Logo hover-triggered animation
+      const heroImg = document.querySelector("#hero-img");
+
+      heroImg.addEventListener("pointerenter", function () {
+        heroImg.classList.remove("spinning");
+        void heroImg.offsetWidth;
+        heroImg.classList.add("spinning");
+      });
+
+      heroImg.addEventListener("animationend", function () {
+        heroImg.classList.remove("spinning");
+      });
+
+      // Dark mode toggle with system sync and persistence
+      const themeToggle = document.querySelector(".nav-toggle");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+      function applyTheme(theme) {
+        if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeToggle.setAttribute("aria-pressed", "true");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeToggle.setAttribute("aria-pressed", "false");
+        }
+        try {
+          localStorage.setItem("theme", theme);
+        } catch (e) {}
+      }
+
+      // Initialize theme from saved preference or system
+      const savedTheme = (() => {
+        try {
+          return localStorage.getItem("theme");
+        } catch (e) {
+          return null;
+        }
+      })();
+
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else {
+        applyTheme(prefersDark.matches ? "dark" : "light");
+      }
+
+      // Listen for explicit user toggle
+      themeToggle.addEventListener("click", function () {
+        const isDark =
+          document.documentElement.getAttribute("data-theme") === "dark";
+        applyTheme(isDark ? "light" : "dark");
+      });
+
+      // If user hasn't set a preference, follow system changes
+      prefersDark.addEventListener("change", (e) => {
+        const userSet = (() => {
+          try {
+            return !!localStorage.getItem("theme");
+          } catch (e) {
+            return false;
+          }
+        })();
+        if (!userSet) applyTheme(e.matches ? "dark" : "light");
+      });
+    </script>
+  </body>
+</html>

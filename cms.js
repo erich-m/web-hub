@@ -8,12 +8,23 @@ const cmsData = {
       title: "Programming Languages",
       order: 1,
       skills: [
-        { name: "Python", level: "expert", order: 1 },
-        { name: "C", level: "expert", order: 2 },
-        { name: "Java", level: "advanced", order: 3 },
-        { name: "JavaScript", level: "advanced", order: 4 },
-        { name: "VHDL", level: "advanced", order: 5 },
-        { name: "Assembly", level: "intermediate", order: 6 }
+        { name: "Python", level: 	"expert", order: 1},
+        { name: "Java", level: 	"expert", order: 2},
+        { name: "Assembly Language", level:  "expert", order: 3},	
+        { name: "VHDL", level: 	"expert", order: 4},
+        { name: "C Programming", level:  "advanced", order: 5},	
+        { name: "JavaScript", level: 	"advanced", order: 6},
+        { name: "HTML/CSS", level: 	"advanced", order: 7},
+        { name: "TypeScript", level: 	"advanced", order: 8},
+        { name: "Linux/Unix Shell", level: 	"advanced", order: 9},
+        { name: "Powershell", level: 	"advanced", order: 10},
+        { name: "R", level: 	"intermediate", order: 11},
+        { name: "SQL", level: 	"intermediate", order: 1},
+        { name: "C++", level: "beginner", order: 12},	
+        { name: "C#", level: "beginner", order: 13},
+        { name: "MATLAB", level: 	"beginner", order: 14},
+        { name: "LabVIEW", level: 	"beginner", order: 15},
+        { name: "Dart", level: 	"beginner", order: 16}
       ]
     },
     {

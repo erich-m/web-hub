@@ -19,12 +19,12 @@ const cmsData = {
         { name: "Linux/Unix Shell", level: 	"advanced", order: 9},
         { name: "Powershell", level: 	"advanced", order: 10},
         { name: "R", level: 	"intermediate", order: 11},
-        { name: "SQL", level: 	"intermediate", order: 1},
-        { name: "C++", level: "beginner", order: 12},	
-        { name: "C#", level: "beginner", order: 13},
-        { name: "MATLAB", level: 	"beginner", order: 14},
-        { name: "LabVIEW", level: 	"beginner", order: 15},
-        { name: "Dart", level: 	"beginner", order: 16}
+        { name: "SQL", level: 	"intermediate", order: 12},
+        { name: "C++", level: "beginner", order: 13},	
+        { name: "C#", level: "beginner", order: 14},
+        { name: "MATLAB", level: 	"beginner", order: 15},
+        { name: "LabVIEW", level: 	"beginner", order: 16},
+        { name: "Dart", level: 	"beginner", order: 17}
       ]
     },
     {

@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Erich M | Comp & AI Engineer</title>
     <link rel="stylesheet" type="text/css" href="styles/stylesheet.css" />
     <script src="cms.js" defer></script>
@@ -58,7 +55,7 @@
           </p>
           <ul class="hero-links">
             <li><a href="#about">About Me</a></li>
-            <li><a>Resume</a></li>
+            <li><a href="assets\files\emaclean_resume.pdf" download>Resume</a></li>
           </ul>
         </div>
       </div>
@@ -69,7 +66,14 @@
       <h2 class="section-title">About</h2>
       <div class="about-content">
         <p>
-          Erich MacLean is a computer engineer specializing in AI and predictive modeling, with a BEng from the University of Guelph (2023) and pursuing a MASc in Engineering (expected 2025). His research focuses on AI-driven vehicle collision prediction to enhance road safety. He values interdisciplinary collaboration and has contributed to research in the DRiVE lab. Outside of work, Erich trains in Five Animal Shaolin Kung Fu (First Degree Black Sash, 2022) and is an avid cyclist.
+          Erich MacLean is a computer engineer specializing in AI and predictive
+          modeling, with a BEng from the University of Guelph (2023) and a MASc
+          in Engineering (2026). His research focused on AI-driven vehicle
+          collision prediction to enhance road safety. He values
+          interdisciplinary collaboration and developing meaningful
+          contributions to projects. Outside of work, Erich trains in Five
+          Animal Shaolin Kung Fu (First Degree Black Sash, 2022) and is an avid
+          cyclist.
         </p>
       </div>
     </section>
@@ -93,27 +97,74 @@
     <!-- Footer -->
     <footer class="page-footer">
       <p>
-        Erich MacLean | B.Eng (Comp), MASc. Eng (AI)<br />www.erich-m.tech | ©
-        2026
+        Erich MacLean | B.Eng (Comp), MASc. Eng (AI)<br />
+        www.erich-m.tech | © 2026
       </p>
     </footer>
 
     <script>
-      const heroImg = document.querySelector('#hero-img');
-      
-      heroImg.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Remove and re-add the class to trigger animation
-        heroImg.classList.remove('spinning');
-        // Trigger reflow to restart animation
+      // Logo hover-triggered animation
+      const heroImg = document.querySelector("#hero-img");
+
+      heroImg.addEventListener("pointerenter", function () {
+        heroImg.classList.remove("spinning");
         void heroImg.offsetWidth;
-        heroImg.classList.add('spinning');
+        heroImg.classList.add("spinning");
       });
-      
-      // Remove spinning class after animation completes
-      heroImg.addEventListener('animationend', function() {
-        heroImg.classList.remove('spinning');
+
+      heroImg.addEventListener("animationend", function () {
+        heroImg.classList.remove("spinning");
+      });
+
+      // Dark mode toggle with system sync and persistence
+      const themeToggle = document.querySelector(".nav-toggle");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+      function applyTheme(theme) {
+        if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeToggle.setAttribute("aria-pressed", "true");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeToggle.setAttribute("aria-pressed", "false");
+        }
+        try {
+          localStorage.setItem("theme", theme);
+        } catch (e) {}
+      }
+
+      // Initialize theme from saved preference or system
+      const savedTheme = (() => {
+        try {
+          return localStorage.getItem("theme");
+        } catch (e) {
+          return null;
+        }
+      })();
+
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else {
+        applyTheme(prefersDark.matches ? "dark" : "light");
+      }
+
+      // Listen for explicit user toggle
+      themeToggle.addEventListener("click", function () {
+        const isDark =
+          document.documentElement.getAttribute("data-theme") === "dark";
+        applyTheme(isDark ? "light" : "dark");
+      });
+
+      // If user hasn't set a preference, follow system changes
+      prefersDark.addEventListener("change", (e) => {
+        const userSet = (() => {
+          try {
+            return !!localStorage.getItem("theme");
+          } catch (e) {
+            return false;
+          }
+        })();
+        if (!userSet) applyTheme(e.matches ? "dark" : "light");
       });
     </script>
   </body>

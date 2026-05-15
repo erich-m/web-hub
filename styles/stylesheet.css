@@ -34,9 +34,27 @@
 
   --bg: #ebebf0;
   --bg-secondary: #fafafc;
-  --border: #28293d22;
+  --card-bg: #f2f2f5;
+  --dropdown-bg: #f2f2f5;
+  --border: rgba(40, 41, 61, 0.12);
   --primary-text: #28293d;
   --secondary-text: #39d98a;
+  --grid-color: rgba(40, 41, 61, 0.04);
+  
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --bg-secondary: #1e293b;
+    --card-bg: #1e293b;
+    --dropdown-bg: #334155;
+    --border: rgba(255, 255, 255, 0.1);
+    --primary-text: #ebebf0;
+    --secondary-text: #4ade80;
+    --grid-color: rgba(255, 255, 255, 0.03);
+  }
 }
 
 @media (min-width: 640px) {
@@ -62,11 +80,30 @@
 }
 
 [data-theme="dark"] {
-  --bg: #28293d;
-  --bg-secondary: #8f90a6;
-  --border: #28293d22;
-  --primary-text: #ebebf0;
+  --bg: #0f172a;
+  --bg-secondary: #1e293b;
+  --card-bg: #1e293b;
+  --dropdown-bg: #334155;
+  --border: rgba(255, 255, 255, 0.1);
+  --primary-text: #f1f5f9;
+  --secondary-text: #4ade80;
+  --grid-color: rgba(255, 255, 255, 0.03);
+  background-color: var(--bg);
+  color: var(--primary-text);
+}
+
+/* Explicit light override -- needed to beat prefers-color-scheme: dark when user toggles */
+[data-theme="light"] {
+  --bg: #f8f8fc;
+  --bg-secondary: #eeeef5;
+  --card-bg: #f8f8fc;
+  --dropdown-bg: #f0f0f7;
+  --border: rgba(40, 41, 61, 0.12);
+  --primary-text: #28293d;
   --secondary-text: #39d98a;
+  --grid-color: rgba(40, 41, 61, 0.04);
+  background-color: var(--bg);
+  color: var(--primary-text);
 }
 
 html {
@@ -119,6 +156,12 @@ section {
   width: 100%;
   box-sizing: border-box;
   border-top: 1px solid rgba(57, 217, 138, 0.1);
+}
+
+#about,
+#skills,
+#contact {
+  padding: 1rem var(--section-padding);
 }
 
 /* Header Navigation Bar */
@@ -220,11 +263,10 @@ section {
   max-width: none;
   border-top: none;
   background-image: 
-    linear-gradient(rgba(40, 41, 61, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(40, 41, 61, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
   background-size: 40px 40px;
-  background-position: center center;
-}
+  background-color: transparent;}
 
 .hero-inner {
   width: 100%;
@@ -412,7 +454,7 @@ section {
 }
 
 .skills-category {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg);
   padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid var(--border);
@@ -435,7 +477,7 @@ section {
 .skill-dropdown {
   border: 1px solid var(--border);
   border-radius: 6px;
-  background-color: var(--bg);
+  background-color: var(--dropdown-bg);
   overflow: hidden;
 }
 
@@ -447,11 +489,18 @@ section {
   list-style: none;
   font-family: var(--font-body);
   font-size: 0.9rem;
+  background-color: var(--dropdown-bg);
   transition: background-color 0.2s ease;
 }
 
 .skill-summary:hover {
   background-color: var(--bg-secondary);
+}
+
+.skill-summary:focus,
+.skill-summary:active,
+.skill-summary:focus-visible {
+  outline: none;
 }
 
 .level-indicator {
@@ -460,6 +509,8 @@ section {
   border-radius: 50%;
   margin-right: 0.8rem;
   flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
 .skill-expert .level-indicator {
@@ -497,13 +548,14 @@ section {
 
 .skill-item {
   display: inline-block;
-  background-color: var(--bg);
+  background-color: var(--bg-secondary);
   padding: 0.3rem 0.6rem;
   margin: 0.2rem 0.3rem 0.2rem 0;
   border-radius: 4px;
   font-size: 0.85rem;
   border: 1px solid var(--border);
   font-family: var(--font-body);
+  color: var(--primary-text);
 }
 
 /* Contact Section */

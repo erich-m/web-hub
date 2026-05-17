@@ -8,13 +8,14 @@
     <link rel="icon" type="image/x-icon" href="assets\images\monogram-green.ico">
     <link rel="stylesheet" type="text/css" href="styles/stylesheet.css" />
     <script src="cms.js" defer></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="2a6bb4ad-ffe6-4c00-80d7-23357e1dca4b"></script>
   </head>
 
   <body>
     <!-- Header Navigation Bar -->
     <nav class="page-header">
       <div class="nav-container">
-        <a href="#hero" class="nav-logo">
+        <a href="#hero" class="nav-logo"  data-umami-event="Header Navigation -> Logo">
           <img
             class="nav-img"
             src="assets/images/monogram-green.png"
@@ -22,11 +23,11 @@
           />
         </a>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about" data-umami-event="Header Navigation -> About">About</a></li>
+          <li><a href="#skills" data-umami-event="Header Navigation -> Skills">Skills</a></li>
+          <li><a href="#contact" data-umami-event="Header Navigation -> Contact">Contact</a></li>
         </ul>
-        <button class="nav-toggle" aria-label="Toggle theme">
+        <button class="nav-toggle" aria-label="Toggle theme" data-umami-event="Header Navigation -> Light/Dark Toggle">
           <img
             class="nav-img"
             src="assets/images/dark-mode-toggle-green.png"
@@ -56,8 +57,8 @@
             University of Guelph
           </p>
           <ul class="hero-links">
-            <li><a href="#about">About Me</a></li>
-            <li><a href="assets\files\emaclean_resume.pdf" download>Resume</a></li>
+            <li><a href="#about" data-umami-event="Hero Navigation -> About">About Me</a></li>
+            <li><a href="assets\files\emaclean_resume.pdf" download data-umami-event="Hero Navigation -> Resume Download">Resume</a></li>
           </ul>
         </div>
       </div>

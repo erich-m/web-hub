@@ -114,6 +114,7 @@ const cmsData = {
     }
   ],
 
+
   contact: [
     {
       id: "email",
@@ -165,7 +166,7 @@ function renderSkills() {
 
       return `
         <details class="skill-dropdown skill-${level}">
-          <summary class="skill-summary">
+          <summary class="skill-summary" data-umami-event="Skills Navigation->${category.title};${level}">
             <span class="level-indicator"></span>
             <span class="level-text">${levelLabel}</span>
             <span class="skill-count">(${skills.length})</span>
@@ -199,7 +200,7 @@ function renderContact() {
   contactContainer.innerHTML = sortedContacts.map(contact => `
     <div class="contact-item">
       <h3>${contact.title}</h3>
-      <p><a href="${contact.href}" ${contact.href.startsWith('http') ? 'target="_blank"' : ''}>${contact.value}</a></p>
+      <p><a href="${contact.href}" ${contact.href.startsWith('http') ? 'target="_blank"' : ''}  data-umami-event="Contact Navigation -> ${contact.title}">${contact.value}</a></p>
     </div>
   `).join('');
 }

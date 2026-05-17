@@ -125,7 +125,7 @@ const cmsData = {
     {
       id: "linkedin",
       title: "LinkedIn",
-      value: "linkedin.com/in/erich-maclean",
+      value: "linkedin.com/erich-maclean",
       href: "https://www.linkedin.com/in/erich-maclean-575549193",
       order: 2
     },

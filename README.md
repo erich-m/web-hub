@@ -1,11 +1,5 @@
-# web-hub: a new operational base for all things Erich
+# Official Hub for erich-m.tech - Projects and Affiliates
 
-The new web hub for personal projects and tech development. This project revitalizes my decade-long project of building and maintaining a portfolio website, bringing in a new, fresh, and modern feel, and introducing a consistent branding for my work.
+## Employment Profile
 
-## Employement Profile
-
-Adversiting my biography, my skills, and providing a streamlined approach for accessing my resume, projects, and contact links
-
-## EM Tech Support
-
-A brand new side project - providing high-quality, professional, and personalized tech support to the Waterloo Region
+In need of a computer engineer or AI designer? Check out my [official bio and directory](https://www.erich-m.tech) for my skills, resume, projects and capabilities

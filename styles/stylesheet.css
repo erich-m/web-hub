@@ -139,6 +139,7 @@ p {
   font-family: var(--font-body);
   font-weight: 400;
   margin: 5px;
+  padding: 5px;
 }
 
 a {

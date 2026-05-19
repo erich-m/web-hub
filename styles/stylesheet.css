@@ -569,9 +569,12 @@ section {
   color: var(--primary-text);
 }
 
-/* Contact Section */
+/* Card wrappers and shared card styling */
 .contact-content,
-.support-contact-grid {
+.support-contact-grid,
+.support-pricing-cards,
+.skills-content,
+.service-grid.support-services {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -584,23 +587,7 @@ section {
   font-family: var(--font-body);
 }
 
-.support-pricing-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  gap: 2rem;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.contact-item,
-.support-contact-item,
-.service-card,
-.price-card,
-.skills-category {
+.card {
   text-align: center;
   padding: 1.5rem 1rem;
   background-color: var(--bg-secondary);
@@ -611,6 +598,10 @@ section {
   flex: 1 1 320px;
   min-width: 260px;
   max-width: 360px;
+}
+
+.skills-category.card {
+  background-color: var(--bg);
 }
 
 .support-contact-item {
@@ -678,11 +669,15 @@ section {
   opacity: 0.92;
 }
 
-.support-contact-item h3,
 .contact-item h3,
+.support-contact-item h3,
 .service-card h3,
 .price-card h3,
 .support-request-card h3 {
+  margin: 0 0 0.75rem 0;
+  color: var(--secondary-text);
+  font-size: 1.25rem;
+  font-weight: 500;
   font-family: var(--font-header);
 }
 
@@ -705,22 +700,9 @@ section {
   padding: 1rem;
 }
 
-.service-grid.support-services,
-.support-contact-grid,
-.support-pricing-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.support-pricing-cards,
+.service-grid.support-services {
   gap: 2rem;
-  align-items: stretch;
-}
-
-.support-services .service-card,
-.support-contact-grid > .support-contact-item,
-.support-pricing-cards > .price-card {
-  flex: 1 1 320px;
-  min-width: 260px;
-  max-width: 360px;
 }
 
 .pricing-content {
@@ -764,13 +746,15 @@ section {
   font-family: var(--font-header);
 }
 
-.contact-icon {
+.contact-icon,
+.card-icon {
   font-size: 4rem;
   margin: 0.45rem auto 0.85rem;
   color: var(--secondary-text);
 }
 
-.contact-icon i {
+.contact-icon i,
+.card-icon i {
   display: inline-block;
   width: 5.4rem;
   height: 5.4rem;
@@ -831,16 +815,19 @@ section {
   font-family: var(--font-header);
 }
 
-.contact-item p {
+.contact-item p,
+.support-contact-item p {
   margin: 0;
   font-size: 1rem;
+  line-height: 1.75;
   font-family: var(--font-body);
   white-space: normal;
   overflow: visible;
   text-overflow: unset;
 }
 
-.contact-item a {
+.contact-item a,
+.support-contact-item .contact-link {
   color: var(--primary-text);
   text-decoration: none;
   transition: color 0.2s ease;

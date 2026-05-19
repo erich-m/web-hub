@@ -6,6 +6,7 @@ const cmsData = {
     {
       id: "languages",
       title: "Programming Languages",
+      icon: '<i class="fa-solid fa-code"></i>',
       order: 1,
       skills: [
         { name: "Python", level: "expert", order: 1},
@@ -30,6 +31,7 @@ const cmsData = {
     {
       id: "frameworks",
       title: "Libraries & Frameworks",
+      icon: '<i class="fa-solid fa-layer-group"></i>',
       order: 2,
       skills: [
         { name: "PyTorch", level: "expert", order: 1},
@@ -55,6 +57,7 @@ const cmsData = {
     {
       id: "tools",
       title: "Tools & Platforms",
+      icon: '<i class="fa-solid fa-tools"></i>',
       order: 3,
       skills: [
         { name: "Machine Learning", level: "expert", order: 1 },
@@ -118,6 +121,7 @@ const cmsData = {
     {
       id: "email",
       title: "Email",
+      icon: '<i class="fa-solid fa-envelope"></i>',
       value: "erich.m.maclean@gmail.com",
       href: "mailto:erich.m.maclean@gmail.com",
       order: 1
@@ -125,6 +129,7 @@ const cmsData = {
     {
       id: "linkedin",
       title: "LinkedIn",
+      icon: '<i class="fa-brands fa-square-linkedin"></i>',
       value: "linkedin.com/erich-maclean",
       href: "https://www.linkedin.com/in/erich-maclean-575549193",
       order: 2
@@ -132,6 +137,7 @@ const cmsData = {
     {
       id: "github",
       title: "GitHub",
+      icon: '<i class="fa-brands fa-square-github"></i>',
       value: "github.com/erich-m",
       href: "https://github.com/erich-m",
       order: 3
@@ -149,20 +155,25 @@ const cmsData = {
       "Hi! I am Erich, a local Kitchener-Waterloo computer engineer offering practical on-site and in-home technology support. I keep service friendly and easy to follow so you understand what’s happening with your devices.",
       "I focus on customer satisfaction above all else, with a teaching-oriented approach that solves problems, protects your equipment, and helps you feel confident using your technology."
     ],
+    // Add icons directly in support card data using FontAwesome HTML.
+    // Example: icon: '<i class="fa-solid fa-stethoscope"></i>'
     services: [
       {
         id: "general-tech",
         title: "General Tech Support",
+        icon: '<i class="fa-solid fa-screwdriver-wrench"></i>',
         description: "On-site troubleshooting, repair, and preventive maintenance for computers, laptops, and connected devices. I diagnose hardware and software issues, restore reliable performance, and keep the process straightforward."
       },
       {
         id: "software-install",
         title: "Software Installation & Virus Scanning",
+        icon: '<i class="fa-solid fa-shield-virus"></i>',
         description: "Software setup, updates, security scanning, and performance tuning. I install the right tools, remove unwanted apps, and make sure your system stays clean and secure."
       },
       {
         id: "custom-solutions",
         title: "Custom Hardware & Software Solutions",
+        icon: '<i class="fa-solid fa-cogs"></i>',
         description: "Custom support for tailored hardware and software needs — from device integration and upgrades to practical small-office technology setups."
       }
     ],
@@ -172,14 +183,17 @@ const cmsData = {
       options: [
         {
           title: "Standard Visit",
+          icon: '<i class="fa-solid fa-calendar-check"></i>',
           detail: "Minimum $35 per visit for diagnostics, repairs, and software setup. Ideal for quick fixes, performance tuning, and straightforward follow-up."
         },
         {
           title: "Maintenance Check",
+          icon: '<i class="fa-solid fa-stethoscope"></i>',
           detail: "Preventive service for cleaning, system checks, and stability updates to keep your devices running reliably."
         },
         {
           title: "Custom Support",
+          icon: '<i class="fa-solid fa-wrench"></i>',
           detail: "Custom hardware and software work tailored to your needs, including upgrades, integration, and practical training."
         }
       ],
@@ -189,6 +203,7 @@ const cmsData = {
       {
         id: "support-email",
         title: "Email",
+        icon: '<i class="fa-solid fa-envelope"></i>',
         value: "erich.m.maclean@gmail.com",
         href: "mailto:erich.m.maclean@gmail.com",
         order: 1
@@ -196,6 +211,7 @@ const cmsData = {
       {
         id: "support-phone",
         title: "Phone",
+        icon: '<i class="fa-solid fa-phone-volume"></i>',
         value: "(519) 502-3623",
         href: "tel:+15195023623",
         order: 2
@@ -203,6 +219,7 @@ const cmsData = {
       {
         id: "service-area",
         title: "Service Area",
+        icon: '<i class="fa-solid fa-map-location-dot"></i>',
         value: "Kitchener-Waterloo region: local on-site support for homes and small offices.",
         href: "",
         order: 3
@@ -246,7 +263,8 @@ function renderSkills() {
     }).join('');
 
     return `
-      <div class="skills-category">
+      <div class="skills-category card">
+        ${category.icon ? `<div class="card-icon">${category.icon}</div>` : ''}
         <h3>${category.title}</h3>
         <div class="skill-dropdowns">
           ${dropdowns}
@@ -256,21 +274,10 @@ function renderSkills() {
   }).join('');
 }
 
-function getContactIcon(id) {
-  switch (id) {
-    case 'email':
-      return '<i class="fa-solid fa-envelope"></i>';
-    case 'linkedin':
-      return '<i class="fa-brands fa-square-linkedin"></i>';
-    case 'github':
-      return '<i class="fa-brands fa-square-github"></i>';
-    case 'support-phone':
-      return '<i class="fa-solid fa-phone-volume"></i>';
-    case 'service-area':
-      return '<i class="fa-solid fa-map-location-dot"></i>';
-    default:
-      return '<i class="fa-solid fa-circle-info"></i>';
-  }
+function renderCardList(containerSelector, items, itemRenderer) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+  container.innerHTML = items.map(itemRenderer).join('');
 }
 
 // Function to render contact section
@@ -281,9 +288,9 @@ function renderContact() {
   const sortedContacts = [...cmsData.contact].sort((a, b) => a.order - b.order);
 
   contactContainer.innerHTML = sortedContacts.map(contact => `
-    <div class="contact-item contact-card-${contact.id}">
+    <div class="contact-item card contact-card-${contact.id}">
+      <div class="contact-icon">${contact.icon}</div>
       <h3>${contact.title}</h3>
-      <div class="contact-icon">${getContactIcon(contact.id)}</div>
       <p><a href="${contact.href}" ${contact.href.startsWith('http') ? 'target="_blank"' : ''} data-umami-event="Contact Navigation -> ${contact.title}">${contact.value}</a></p>
     </div>
   `).join('');
@@ -317,15 +324,13 @@ function renderSupportAbout() {
 
 // Function to render support page services
 function renderSupportServices() {
-  const servicesContainer = document.querySelector('.support-services');
-  if (!servicesContainer) return;
-
-  servicesContainer.innerHTML = cmsData.supportPage.services.map(service => `
-    <div class="service-card">
+  renderCardList('.support-services', cmsData.supportPage.services, service => `
+    <div class="service-card card">
+      ${service.icon ? `<div class="card-icon">${service.icon}</div>` : ''}
       <h3>${service.title}</h3>
       <p>${service.description}</p>
     </div>
-  `).join('');
+  `);
 }
 
 // Function to render support page pricing
@@ -339,15 +344,16 @@ function renderSupportPricing() {
       <p>${cmsData.supportPage.pricing.description}</p>
       <p class="pricing-note">${cmsData.supportPage.pricing.note}</p>
     </div>
-    <div class="support-pricing-cards">
-      ${cmsData.supportPage.pricing.options.map(option => `
-        <div class="price-card">
-          <h3>${option.title}</h3>
-          <p>${option.detail}</p>
-        </div>
-      `).join('')}
-    </div>
+    <div class="support-pricing-cards"></div>
   `;
+
+  renderCardList('.support-pricing-cards', cmsData.supportPage.pricing.options, option => `
+    <div class="price-card card">
+      ${option.icon ? `<div class="card-icon">${option.icon}</div>` : ''}
+      <h3>${option.title}</h3>
+      <p>${option.detail}</p>
+    </div>
+  `);
 }
 
 // Function to render support page contact section
@@ -358,9 +364,9 @@ function renderSupportContact() {
   const sortedContacts = [...cmsData.supportPage.contact].sort((a, b) => a.order - b.order);
 
   contactContainer.innerHTML = sortedContacts.map(contact => `
-    <div class="support-contact-item contact-card-${contact.id}">
+    <div class="support-contact-item card contact-card-${contact.id}">
+      <div class="contact-icon">${contact.icon}</div>
       <h3>${contact.title}</h3>
-      <div class="contact-icon">${getContactIcon(contact.id)}</div>
       ${contact.href ? `
         <p><a class="contact-link" href="${contact.href}" ${contact.href.startsWith('http') ? 'target="_blank"' : ''} data-umami-event="Support Contact -> ${contact.title}">${contact.value}</a></p>
       ` : `

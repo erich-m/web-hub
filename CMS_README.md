@@ -12,18 +12,22 @@ The skills are stored in the `cms.js` file in the `cmsData.skills` array. Each s
 - `skills`: Array of individual skills with `name`, `level`, and `order`
 
 ### Expertise Levels
+
 Skills are automatically grouped by expertise level in collapsible dropdowns:
+
 - `expert`: Green indicator - Advanced proficiency
 - `advanced`: Light green indicator - Solid working knowledge
 - `intermediate`: Yellow indicator - Moderate experience
 - `beginner`: Red indicator - Basic/familiarity level
 
 ### Current Categories
+
 - **Programming Languages**: Core languages
 - **Libraries & Frameworks**: Development tools and libraries
 - **Tools & Platforms**: Combined tools, platforms, and areas of expertise
 
 ### Example: Adding a New Skill Category
+
 ```javascript
 {
   id: "new-category",
@@ -36,7 +40,9 @@ Skills are automatically grouped by expertise level in collapsible dropdowns:
 ```
 
 ### Example: Adding a Skill to Existing Category
+
 Find the category in `cmsData.skills` and add to its `skills` array:
+
 ```javascript
 { name: "New Skill", level: "beginner", order: 13 }
 ```
@@ -52,6 +58,7 @@ Contact items are stored in `cmsData.contact` array. Each contact has:
 - `order`: Number for sorting
 
 ### Example: Adding New Contact Method
+
 ```javascript
 {
   id: "twitter",
@@ -106,6 +113,7 @@ To change the support page content, edit `cms.js` or use `CMS.updateSupportPage(
 - **Custom Fonts**: Uses your site's custom font families
 
 ## File Structure
+
 - `index.html`: Main HTML structure
 - `styles/stylesheet.css`: All styling
 - `cms.js`: Content management system
@@ -113,9 +121,10 @@ To change the support page content, edit `cms.js` or use `CMS.updateSupportPage(
   id: "twitter",
   title: "Twitter",
   value: "@yourhandle",
-  href: "https://twitter.com/yourhandle",
+  href: "<https://twitter.com/yourhandle>",
   order: 6
 }
+
 ```
 
 ## How to Update Content
@@ -141,6 +150,7 @@ console.log(CMS.data);
 ```
 
 ## File Structure
+
 - `index.html`: Main HTML structure
 - `styles/stylesheet.css`: All styling
 - `cms.js`: Content management system

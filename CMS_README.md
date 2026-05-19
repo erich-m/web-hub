@@ -80,9 +80,23 @@ CMS.updateSkills(newSkillsArray);
 // Update contact
 CMS.updateContact(newContactArray);
 
+// Update support page content
+CMS.updateSupportPage(newSupportPageObject);
+
 // Access current data
 console.log(CMS.data);
 ```
+
+## Support Page Content
+
+The support landing page is now driven by `cmsData.supportPage` in `cms.js` and includes:
+
+- `supportPage.about`: paragraphs for the support page about section
+- `supportPage.services`: service cards for general tech support, software support, and hardware maintenance
+- `supportPage.pricing`: pricing highlights with flexible local pricing messaging
+- `supportPage.contact`: support email, phone, and service area details
+
+To change the support page content, edit `cms.js` or use `CMS.updateSupportPage(...)` in the browser console.
 
 ## Visual Features
 

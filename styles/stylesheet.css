@@ -22,6 +22,10 @@
   font-display: swap;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --font-header: "FiraMono", monospace;
   --font-body: "FiraMono", monospace;
@@ -115,6 +119,8 @@ body {
   padding-top: var(--nav-height);
   margin: 0;
   overflow-x: hidden;
+  font-family: var(--font-body);
+  color: var(--primary-text);
 }
 
 /* bold header */
@@ -560,22 +566,212 @@ section {
 }
 
 /* Contact Section */
-.contact-content {
+.contact-content,
+.support-contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
+  font-family: var(--font-body);
 }
 
-.contact-item {
+.contact-item,
+.support-contact-item,
+.service-card,
+.price-card {
   text-align: center;
   padding: 1.5rem 1rem;
   background-color: var(--bg-secondary);
   border-radius: 8px;
   border: 1px solid var(--border);
   min-width: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.support-contact-item {
+  font-family: var(--font-body);
+}
+
+.form-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  min-width: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.support-request-container {
+  margin-top: 2rem;
+}
+
+.support-request-form {
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.support-request-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.support-request-form input,
+.support-request-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--bg);
+  color: var(--primary-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.support-request-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.support-request-submit {
+  background-color: var(--secondary-text);
+  border: none;
+  border-radius: 8px;
+  color: var(--bg);
+  padding: 0.95rem 1.3rem;
+  cursor: pointer;
+  font-family: var(--font-header);
+  font-size: 1rem;
+  align-self: flex-start;
+}
+
+.support-request-submit:hover {
+  opacity: 0.92;
+}
+
+.support-contact-item h3,
+.contact-item h3,
+.service-card h3,
+.price-card h3,
+.support-request-card h3 {
+  font-family: var(--font-header);
+}
+
+.service-grid,
+.pricing-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.pricing-content {
+  justify-items: center;
+}
+
+.pricing-summary {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 0.5rem 1rem 0;
+  max-width: 720px;
+}
+
+#pricing .section-title {
+  margin-bottom: 1rem;
+}
+
+.pricing-summary p {
+  margin: 0.5rem auto;
+  max-width: 42rem;
+  line-height: 1.7;
+}
+
+#pricing .section-title {
+  margin-bottom: 1.25rem;
+}
+
+.pricing-note {
+  color: var(--secondary-text);
+  font-style: italic;
+}
+
+.service-card h3,
+.price-card h3,
+.form-card h3 {
+  margin-top: 0;
+  margin: 0 0 0.5rem 0;
+  color: var(--secondary-text);
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: var(--font-header);
+}
+
+.contact-icon {
+  font-size: 4rem;
+  margin: 0.45rem auto 0.85rem;
+  color: var(--secondary-text);
+}
+
+.contact-icon i {
+  display: inline-block;
+  width: 5.4rem;
+  height: 5.4rem;
+  line-height: 5.4rem;
+}
+
+.service-card p,
+.price-card p,
+.support-contact-item p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  font-family: var(--font-body);
+}
+
+.support-hero-actions {
+  gap: clamp(1rem, 4vw, 2rem);
+}
+
+.support-about-content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+}
+
+.support-contact-item .contact-value {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--primary-text);
+}
+
+.support-contact-item .contact-link {
+  color: var(--primary-text);
+  word-break: break-word;
+}
+
+.support-contact-item .contact-link:hover {
+  color: var(--secondary-text);
+}
+
+.support-contact-item,
+.support-contact-item h3,
+.support-contact-item p,
+.support-contact-item .contact-link {
+  font-family: var(--font-body);
+}
+
+.support-contact-item h3 {
+  font-family: var(--font-header);
 }
 
 .contact-item h3 {

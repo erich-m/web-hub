@@ -339,12 +339,14 @@ function renderSupportPricing() {
       <p>${cmsData.supportPage.pricing.description}</p>
       <p class="pricing-note">${cmsData.supportPage.pricing.note}</p>
     </div>
-    ${cmsData.supportPage.pricing.options.map(option => `
-      <div class="price-card">
-        <h3>${option.title}</h3>
-        <p>${option.detail}</p>
-      </div>
-    `).join('')}
+    <div class="support-pricing-cards">
+      ${cmsData.supportPage.pricing.options.map(option => `
+        <div class="price-card">
+          <h3>${option.title}</h3>
+          <p>${option.detail}</p>
+        </div>
+      `).join('')}
+    </div>
   `;
 }
 

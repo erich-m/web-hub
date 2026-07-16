@@ -289,7 +289,7 @@ function renderContact() {
 
   contactContainer.innerHTML = sortedContacts.map(contact => `
     <div class="contact-item card contact-card-${contact.id}">
-      <div class="contact-icon">${contact.icon}</div>
+      <div class="contact-icon" onClick="copyContentToClipboard('${contact.href}')">${contact.icon}</div>
       <h3>${contact.title}</h3>
       <p><a href="${contact.href}" ${contact.href.startsWith('http') ? 'target="_blank"' : ''} data-umami-event="Contact Navigation -> ${contact.title}">${contact.value}</a></p>
     </div>
@@ -374,6 +374,11 @@ function renderSupportContact() {
       `}
     </div>
   `).join('');
+}
+
+function copyContentToClipboard(contentToCopy) {
+  navigator.clipboard.writeText(contentToCopy);
+  
 }
 
 // Initialize CMS when DOM is loaded
